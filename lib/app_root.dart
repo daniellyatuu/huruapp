@@ -2,6 +2,7 @@ import 'package:custom_navigation_bar/custom_navigation_bar.dart';
 import 'package:custom_navigator/custom_navigator.dart';
 import 'package:flutter/material.dart';
 import 'package:huruapp/src/app/information/info_file.dart';
+import 'package:huruapp/src/app/service/service_files.dart';
 
 class AppRoot extends StatefulWidget {
   @override
@@ -13,10 +14,8 @@ class _AppRootState extends State<AppRoot> {
   bool isLoggedIn = false;
 
   final List<Widget> _children = [
-    InfoInit(),
-    Center(
-      child: Text('page 2'),
-    ),
+    Info(),
+    Service(),
   ];
 
   void _onTappedBar(int index) {
