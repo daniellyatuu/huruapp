@@ -27,7 +27,10 @@ dependencies:
   custom_navigator: ^0.3.0
   custom_navigation_bar: ^0.7.1
   extended_image: ^1.5.0
-  carousel_pro: ^1.0.0
+  equatable: ^1.2.6
+  flutter_bloc: ^6.1.2
+  http: ^0.12.2
+  flutter_html: any
 
 dev_dependencies:
   flutter_test:

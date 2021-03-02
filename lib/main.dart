@@ -1,17 +1,31 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:huruapp/src/bloc/bloc_files.dart';
 
 import 'app_root.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(
+    MyApp(),
+  );
 }
 
 class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Home(),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (context) => InformationBloc()..add(GetInfo()),
+        ),
+        BlocProvider(
+          create: (context) => ServiceBloc()..add(GetService()),
+        ),
+      ],
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        home: Home(),
+      ),
     );
   }
 }
