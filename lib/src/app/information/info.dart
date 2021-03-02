@@ -110,7 +110,7 @@ class Info extends StatelessWidget {
                             child: Container(
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(5.0),
-                                color: Colors.black.withOpacity(0.5),
+                                color: Colors.black.withOpacity(0.7),
                               ),
                               padding: EdgeInsets.all(5.0),
                               child: Text(
@@ -118,7 +118,7 @@ class Info extends StatelessWidget {
                                 style: TextStyle(
                                   color: Colors.white,
                                   fontWeight: FontWeight.bold,
-                                  fontSize: 14.0,
+                                  fontSize: 16.0,
                                 ),
                               ),
                             ),
@@ -143,6 +143,7 @@ class Info extends StatelessWidget {
                               'Read more...',
                               style: TextStyle(
                                 color: Colors.teal,
+                                fontSize: 16.0,
                               ),
                             ),
                           ),

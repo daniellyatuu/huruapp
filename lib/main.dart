@@ -18,6 +18,9 @@ class MyApp extends StatelessWidget {
         BlocProvider(
           create: (context) => InformationBloc()..add(GetInfo()),
         ),
+        BlocProvider(
+          create: (context) => ServiceBloc()..add(GetService()),
+        ),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,

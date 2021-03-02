@@ -19,12 +19,6 @@ class _AppRootState extends State<AppRoot> {
   ];
 
   void _onTappedBar(int index) {
-    // if (navigatorKey.currentState.canPop()) {
-    //   navigatorKey.currentState.popUntil((route) => route.isFirst);
-    // } else {
-    //  print('scroll to top');
-    // }
-
     setState(() {
       _currentIndex = index;
     });
