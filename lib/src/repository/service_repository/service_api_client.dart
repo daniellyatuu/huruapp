@@ -6,7 +6,7 @@ import 'dart:convert';
 
 class ServiceApiClient {
   Future<List<Service>> getServiceData() async {
-    var _url = SERVICE_LIST_API;
+    var _url = Uri.http('$getRequestServerName', '$serviceListApi');
 
     Map<String, String> headers = {
       'Content-Type': 'application/json; charset=UTF-8',

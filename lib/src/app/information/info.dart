@@ -1,4 +1,5 @@
 import 'package:extended_image/extended_image.dart';
+import 'package:huruapp/src/app/information/info_file.dart';
 import 'package:huruapp/src/bloc/bloc_files.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter/cupertino.dart';
@@ -59,107 +60,60 @@ class Info extends StatelessWidget {
               physics: BouncingScrollPhysics(),
               itemCount: data.length,
               itemBuilder: (context, index) {
-                return Column(
-                  children: [
-                    Stack(
-                      children: <Widget>[
-                        AspectRatio(
-                          aspectRatio: 1.0,
-                          child: ExtendedImage.network(
-                            '${data[index].coverPhoto}',
-                            cache: true,
-                            loadStateChanged: (ExtendedImageState state) {
-                              switch (state.extendedImageLoadState) {
-                                case LoadState.loading:
-                                  return CupertinoActivityIndicator();
-                                  break;
+                return Card(
+                  child: ListTile(
+                    onTap: () {
+                      print(data[index]);
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => SingleInfo(
+                            article: data[index],
+                          ),
+                        ),
+                      );
+                    },
+                    leading: AspectRatio(
+                      aspectRatio: 1.5,
+                      child: ExtendedImage.network(
+                        '${data[index].coverPhoto}',
+                        cache: true,
+                        loadStateChanged: (ExtendedImageState state) {
+                          switch (state.extendedImageLoadState) {
+                            case LoadState.loading:
+                              return CupertinoActivityIndicator();
+                              break;
 
-                                ///if you don't want override completed widget
-                                ///please return null or state.completedWidget
-                                //return null;
-                                //return state.completedWidget;
-                                case LoadState.completed:
-                                  return ExtendedRawImage(
-                                    fit: BoxFit.cover,
-                                    image: state.extendedImageInfo?.image,
-                                  );
-                                  break;
-                                case LoadState.failed:
-                                  // _controller.reset();
-                                  return GestureDetector(
-                                    child: Center(
-                                      child: Icon(Icons.refresh),
-                                    ),
-                                    onTap: () {
-                                      state.reLoadImage();
-                                    },
-                                  );
-                                  break;
-                              }
-                              return null;
-                            },
-                          ),
-                        ),
-                        Positioned(
-                          top: 5.0,
-                          right: 6.0,
-                          child: GestureDetector(
-                            onTap: () {
-                              print('show category data');
-                            },
-                            child: Container(
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(5.0),
-                                color: Colors.black.withOpacity(0.7),
-                              ),
-                              padding: EdgeInsets.all(5.0),
-                              child: Text(
-                                '${data[index].category}',
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 16.0,
+                            ///if you don't want override completed widget
+                            ///please return null or state.completedWidget
+                            //return null;
+                            //return state.completedWidget;
+                            case LoadState.completed:
+                              return ExtendedRawImage(
+                                fit: BoxFit.cover,
+                                image: state.extendedImageInfo?.image,
+                              );
+                              break;
+                            case LoadState.failed:
+                              // _controller.reset();
+                              return GestureDetector(
+                                child: Center(
+                                  child: Icon(Icons.refresh),
                                 ),
-                              ),
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                    Container(
-                      padding: EdgeInsets.all(8.0),
-                      alignment: Alignment.centerLeft,
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            '${data[index].enTitle}',
-                            style: Theme.of(context).textTheme.headline5,
-                          ),
-                          FlatButton(
-                            padding: EdgeInsets.zero,
-                            onPressed: () {},
-                            child: Text(
-                              'Read more...',
-                              style: TextStyle(
-                                color: Colors.teal,
-                                fontSize: 16.0,
-                              ),
-                            ),
-                          ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.end,
-                            children: [
-                              Text(
-                                'By: ${data[index].username}',
-                                style: Theme.of(context).textTheme.caption,
-                              ),
-                            ],
-                          ),
-                        ],
+                                onTap: () {
+                                  state.reLoadImage();
+                                },
+                              );
+                              break;
+                          }
+                          return null;
+                        },
                       ),
                     ),
-                  ],
+                    title: Text('${data[index].enTitle}'),
+                    subtitle: Text('By: ${data[index].username}'),
+                    trailing: Icon(Icons.arrow_right),
+                  ),
                 );
               },
             );

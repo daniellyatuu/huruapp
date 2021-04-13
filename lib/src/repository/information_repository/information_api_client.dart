@@ -41,11 +41,11 @@ import 'dart:convert';
 
 class InformationApiClient {
   Future<List<Article>> getInfoData() async {
-    var _url = INFO_LIST_API;
-
     Map<String, String> headers = {
       'Content-Type': 'application/json; charset=UTF-8',
     };
+
+    var _url = Uri.http('$getRequestServerName', '$infoListApi');
 
     final response = await http.get(
       _url,

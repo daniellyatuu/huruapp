@@ -13,49 +13,6 @@ class _ServiceState extends State<Service> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // appBar: AppBar(
-      //   backgroundColor: Color(0xFF417690),
-      //   leading: IconButton(
-      //     onPressed: () {},
-      //     icon: Icon(
-      //       Icons.search,
-      //       size: 25.0,
-      //     ),
-      //   ),
-      //   title: Container(
-      //     padding: EdgeInsets.only(left: 10.0),
-      //     decoration: BoxDecoration(
-      //       color: Color.fromARGB(50, 255, 255, 255),
-      //       borderRadius: BorderRadius.all(
-      //         Radius.circular(4.0),
-      //       ),
-      //     ),
-      //     child: GestureDetector(
-      //       onTap: () {},
-      //       child: Row(
-      //         crossAxisAlignment: CrossAxisAlignment.start,
-      //         children: [
-      //           Expanded(
-      //             flex: 1,
-      //             child: AbsorbPointer(
-      //               absorbing: true,
-      //               child: TextField(
-      //                 autofocus: false,
-      //                 style: TextStyle(color: Colors.white),
-      //                 decoration: InputDecoration(
-      //                   border: InputBorder.none,
-      //                   hintText: 'Search',
-      //                   hintStyle: TextStyle(
-      //                       fontWeight: FontWeight.bold, color: Colors.white),
-      //                 ),
-      //               ),
-      //             ),
-      //           ),
-      //         ],
-      //       ),
-      //     ),
-      //   ),
-      // ),
       appBar: AppBar(
         title: Text('Services'),
         backgroundColor: Color(0xFF417690),
