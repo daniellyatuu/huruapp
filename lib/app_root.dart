@@ -3,6 +3,7 @@ import 'package:custom_navigator/custom_navigator.dart';
 import 'package:flutter/material.dart';
 import 'package:huruapp/src/app/information/info_file.dart';
 import 'package:huruapp/src/app/service/service_files.dart';
+import 'package:huruapp/src/app/settings/settings_files.dart';
 
 class AppRoot extends StatefulWidget {
   @override
@@ -16,9 +17,22 @@ class _AppRootState extends State<AppRoot> {
   final List<Widget> _children = [
     Info(),
     Service(),
+    Center(
+      child: Text(
+        'Coming soon',
+        style: TextStyle(
+          fontSize: 20.0,
+        ),
+      ),
+    ),
+    Settings(),
   ];
 
   void _onTappedBar(int index) {
+    if (navigatorKey.currentState.canPop()) {
+      navigatorKey.currentState.popUntil((route) => route.isFirst);
+    }
+
     setState(() {
       _currentIndex = index;
     });
@@ -42,11 +56,23 @@ class _AppRootState extends State<AppRoot> {
         items: [
           CustomNavigationBarItem(
             icon: Icon(Icons.info_outline_rounded),
+            selectedIcon: Icon(Icons.info),
             title: Text('Information'),
           ),
           CustomNavigationBarItem(
             icon: Icon(Icons.medical_services_outlined),
+            selectedIcon: Icon(Icons.medical_services),
             title: Text('Service'),
+          ),
+          CustomNavigationBarItem(
+            icon: Icon(Icons.video_collection_outlined),
+            selectedIcon: Icon(Icons.video_collection),
+            title: Text('Testimony'),
+          ),
+          CustomNavigationBarItem(
+            icon: Icon(Icons.settings_outlined),
+            selectedIcon: Icon(Icons.settings),
+            title: Text('Settings'),
           ),
         ],
         currentIndex: _currentIndex,
