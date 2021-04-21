@@ -1,5 +1,5 @@
-const DOMAIN_NAME = '192.168.43.155:8000';
-// const DOMAIN_NAME = 'www.huruapp.org';
+// const DOMAIN_NAME = '192.168.1.97:8000';
+const DOMAIN_NAME = 'www.huruapp.org';
 
 // PUBLIC URL
 var getRequestServerName = DOMAIN_NAME;
