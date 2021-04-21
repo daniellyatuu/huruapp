@@ -55,8 +55,7 @@ class Info extends StatelessWidget {
               );
             }
 
-            return ListView.separated(
-              separatorBuilder: (context, index) => Divider(),
+            return ListView.builder(
               physics: BouncingScrollPhysics(),
               itemCount: data.length,
               itemBuilder: (context, index) {
